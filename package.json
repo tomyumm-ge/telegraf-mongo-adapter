@@ -1,6 +1,6 @@
 {
   "name": "telegraf-mongo-adapter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Telegraf mongo adapter extension with built-in session middleware compatibility",
   "main": "src/index.ts",
   "repository": {
