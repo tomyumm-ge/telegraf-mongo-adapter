@@ -1,8 +1,9 @@
 {
   "name": "telegraf-mongo-adapter",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Telegraf mongo adapter extension with built-in session middleware compatibility",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/tomyumm-ge/telegraf-mongo-adapter.git"
@@ -11,7 +12,10 @@
     "pretest": "docker run -d --name test-mongo-adapter -p 27018:27017 mongo:latest",
     "test": "jest",
     "posttest": "docker stop test-mongo-adapter && docker rm test-mongo-adapter",
-    "release": "npx np"
+    "prepublish": "npm run build:clean",
+    "build:clean": "npm run clean && npm run build",
+    "build": "tsc",
+    "clean": "rm -rf ./dist"
   },
   "keywords": [
     "telegram",
