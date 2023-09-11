@@ -20,7 +20,6 @@ import {MongoAdapter, SessionData} from 'telegraf-mongo-adapter'
 import {Telegraf} from 'telegraf'
 import {MongoClient} from "mongodb";
 import {SessionEntity} from "./interfaces";
-import {prepareBot} from "./_prepareBot";
 
 const setupBot = async (): Telegraf => {
   const client = MongoClient('mongodb://localhost:27017')
@@ -61,7 +60,7 @@ const setupBot = async (): Telegraf => {
 // somewhere we can launch this
 
 const main = async () => {
-  const bot = await prepareBot()
+  const bot = await setupBot()
   await bot.launch()
 }
 
@@ -69,7 +68,7 @@ main()
   .catch(console.error)
 ```
 
-`SessionData` is TS interface with keys and type of values
+`SessionData` is TS interface with keys and types of values
 
 `collection` is mongodb powered collection provided by your connection
 
